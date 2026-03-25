@@ -12,4 +12,11 @@ class Home
             ->query("SELECT * FROM teacher")
             ->fetchAll();
     }
+
+    public static function create(string $name, string $email): int
+    {
+        $stmt = Database::connection('espsm')->prepare("INSERT INTO teacher(name,email) VALUES(?,?)");
+        $stmt->execute([$name, $email]);
+        return (int)Database::connection('espsm')->lastInsertId();
+    }
 }

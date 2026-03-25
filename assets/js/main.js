@@ -4,7 +4,7 @@ $(document).ready(function () {
   async function getAllTeacher() {
     try {
       const result = await $.ajax({
-        url: `${window.APP_BASE}/list`,
+        url: `${window.APP_BASE}/home`,
         method: "GET",
         dataType: "JSON",
       });
